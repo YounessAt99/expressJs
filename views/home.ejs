@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%=title   %></title>
+</head>
+<body>
+    <form action="/ajouter" method="POST">
+        <label for="">code</label>
+        <input type="text" name="code" id="">
+        <label for="">nom</label>
+        <input type="text" name="nom" id="">
+        <label for="">prenom</label>
+        <input type="text" name="prenom" id="">
+        <label for="">classe</label>
+        <input type="text" name="classe" id="">
+        <input type="submit" value="ajouter">
+    </form>
+    <h1>Liste etudiant</h1>
+     <table border="" style="border-collapse: collapse;width:100%">
+        <thead>
+            <tr style="background-color: antiquewhite;">
+                <th>code</th>
+                <th>nom</th>
+                <th>prenom</th>
+                <th>classe</th>
+                <th>Action</th>
+            </tr>
+            
+        </thead>
+        <tbody>
+            <% for(let i=0;i<student.length;i++){ %>
+            <tr>
+                <td><%=student[i].code %></td>
+                <td><%=student[i].nom %></td>
+                <td><%=student[i].prenom %></td>
+                <td><%=student[i].classe %></td>
+                <td>
+                    <a href="/del/<%=student[i].code %>" >del</a>
+                    <a href="/update/<%=student[i].code %>">edit</a>
+                </td>
+                
+            </tr>
+            <% } %>
+        </tbody>
+     </table>
+</body>
+</html>
